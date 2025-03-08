@@ -1,3 +1,75 @@
+import Image from 'next/image';
+import StarIcon from '../../public/assets/icons/star.svg';
+import { HeroOrbit } from '@/components/HeroOrbit';
+
 export const HeroSection = () => {
-  return <div>Hero Section</div>;
+  return (
+    <div className="py-32 md:py-48 lg:py-60 relative z-0 overflow-x-clip">
+      <div className="absolute inset-0 mask-image:linear-gradient-to-r from-gray-900 to-gray-800">
+        <div className="absolute inset-0 -z-30 opacity-5" style={{ backgroundImage: "url('/assets/images/grain.jpg')" }}></div>
+        <div className="size-[620px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-2 rounded-full border-emerald-300/5 shadow-[0_0_80px_inset] shadow-emerald-300/5"></div>
+        <div className="size-[820px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-2 rounded-full border-emerald-300/5 shadow-[0_0_80px_inset] shadow-emerald-300/5"></div>
+        <div className="size-[1020px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-2 rounded-full border-emerald-300/5 shadow-[0_0_80px_inset] shadow-emerald-300/5"></div>
+        <div className="size-[1220px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-2 rounded-full border-emerald-300/5 shadow-[0_0_80px_inset] shadow-emerald-300/5"></div>
+        <HeroOrbit size={750} rotation={-72}>
+          <StarIcon className="text-emerald-300 size-28" />
+        </HeroOrbit>
+        <HeroOrbit size={670} rotation={10}>
+          <StarIcon className="text-emerald-300/10 size-12" />
+        </HeroOrbit>
+        <HeroOrbit size={590} rotation={84}>
+          <StarIcon className="text-emerald-300 size-14" />
+        </HeroOrbit>
+        <HeroOrbit size={620} rotation={175}>
+          <StarIcon className="text-emerald-300 size-16" />
+        </HeroOrbit>
+        <HeroOrbit size={680} rotation={-145}>
+          <StarIcon className="text-emerald-300/10 size-24" />
+        </HeroOrbit>
+        <HeroOrbit size={730} rotation={-40}>
+          <StarIcon className="text-emerald-300/10 size-10" />
+        </HeroOrbit>
+        <HeroOrbit size={550} rotation={-15}>
+          <StarIcon className="text-emerald-300 size-9" />
+        </HeroOrbit>
+        <HeroOrbit size={700} rotation={132}>
+          <StarIcon className="text-emerald-300/10 size-16" />
+        </HeroOrbit>
+        <HeroOrbit size={400} rotation={40}>
+          <StarIcon className="text-emerald-300/10 size-8" />
+        </HeroOrbit>
+        <HeroOrbit size={430} rotation={140}>
+          <StarIcon className="text-emerald-300 size-6" />
+        </HeroOrbit>
+        <HeroOrbit size={510} rotation={-110}>
+          <StarIcon className="text-emerald-300/10 size-8" />
+        </HeroOrbit>
+      </div>
+      <div className="container">
+        <div className="flex flex-col items-center">
+          <Image src="/assets/images/memoji-computer.png" alt="person peeking from behind the laptop" width={100} height={100} />
+          <div className="bg-gray-950 border border-gray-800 px-4 py-1.5 inline-flex items-center gap-4 rounded-lg">
+            <div className="bg-green-500 size-2.5 rounded-full relative">
+              <div className="bg-green-500 absolute inset-0 rounded-full animate-ping-large"></div>
+            </div>
+            <div className="text-sm font-medium">Available for new projects</div>
+          </div>
+        </div>
+        <div className="max-w-lg mx-auto">
+          <h1 className="font-serif text-3xl text-center mt-8 tracking-wide">Hello, I'm Siddardha Karumuri</h1>
+          <h1 className="font-serif text-3xl text-center mt-4 tracking-wide">I'm a Full-Stack developer</h1>
+          <p className="mt-4 text-center text-white/60 md:text-lg">I'm specialize in transforming designs into functional, high-performing web applications.</p>
+        </div>
+        <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4">
+          <button className="inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl">
+            <span className="font-semibold">View Resume</span>
+          </button>
+          <button className="inline-flex items-center gap-2 border border-white bg-white text-gray-900 h-12 px-6 rounded-xl">
+            <span>👋</span>
+            <span className="font-semibold">Let's connect</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 };
