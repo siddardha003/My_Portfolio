@@ -5,17 +5,30 @@ import Footer from "@/sections/Footer";
 import Header from "@/sections/Header";
 import { HeroSection } from "@/sections/Hero";
 import Projects from "@/sections/Projects";
-
+import { Experience } from "@/sections/Experience";
 
 export default function Home() {
   return (
     <div>
       <Header />
-      <HeroSection />
-      <AboutSection />
-      <Projects />
-      <Education />
-      <ContactSection />
+      <section id="hero">
+        <HeroSection />
+      </section>
+      <section id="about">
+        <AboutSection />
+      </section>
+      <section id="projects">
+        <Projects />
+      </section>
+      <section id="experience">
+        <Experience />
+      </section>
+      <section id="education">
+        <Education />
+      </section>
+      <section id="contact">
+        <ContactSection />
+      </section>
       <Footer />
     </div>
   );

@@ -1,6 +1,9 @@
 import Image from 'next/image';
 import StarIcon from '../../public/assets/icons/star.svg';
 import { HeroOrbit } from '@/components/HeroOrbit';
+import GradientText from '@/components/GradientText';
+import { Texts } from '@/constants/constants';
+import { MorphingText } from '@/components/magicui/morphing-text';
 
 export const HeroSection = () => {
   return (
@@ -56,8 +59,15 @@ export const HeroSection = () => {
           </div>
         </div>
         <div className="max-w-lg mx-auto">
-          <h1 className="font-serif text-3xl text-center mt-8 tracking-wide">Hello, I'm Siddardha Karumuri</h1>
-          <h1 className="font-serif text-3xl text-center mt-4 tracking-wide">I'm a Full-Stack developer</h1>
+          <GradientText
+            colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+            animationSpeed={3}
+            showBorder={false}
+            className="font-serif text-3xl text-center mt-8 tracking-wide"
+          >
+            Hello, I'm Siddardha Karumuri
+          </GradientText>
+          <h1 className="font-serif text-3xl text-center mt-4 tracking-wide ">I'm a <MorphingText className="font-serif text-sm mt-4 text-3xl " texts={Texts.filter((text): text is string => text !== undefined)} /></h1>
           <p className="mt-4 text-center text-white/60 md:text-lg">I'm specialize in transforming designs into functional, high-performing web applications.</p>
         </div>
         <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4">

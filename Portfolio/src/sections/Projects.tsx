@@ -21,21 +21,24 @@ const Projects = () => {
   const currentProject = myProjects[selectedProjectIndex];
 
   return (
-    <section className="pb-16 lg:py-24">
+    <section className="py-20">
       <div className="container">
         <div className="flex justify-center">
           <p className="uppercase  font-semibold tracking-widest bg-gradient-to-r from-emerald-300 to-sky-400  bg-clip-text text-transparent text-center">
-            Real-world projects</p>
+            Featured projects</p>
         </div>
-        <h2 className="font-serif text-3xl md:text-5xl text-center mt-6">Featured projects</h2>
-        <p className="text-center md:text-lg lg:text-xl text-white/60 mt-4 mx-w-md mx-auto">see how i transformed cocepts into engaing digital experiences.</p>
-        <div className="grid lg:grid-cols-2 grid-cols-1 mt-12 gap-5 w-full mt-24">
+        <h2 className="font-serif text-3xl md:text-5xl text-center mt-6">My Creative Endeavors</h2>
+        <p className="text-center md:text-lg lg:text-xl text-white/60 mt-4 max-w-3xl mx-auto">A glimpse into the projects I've developed, each reflecting my passion for technology, creativity, and impactful solutions.</p>
+        <div className="mt-12 gap-5 w-full mt-24 border border-white/30 rounded-3xl">
           <div className="flex flex-col gap-5 relative sm:p-10 py-10 px-5 shadow-2xl shadow-black-200">
             <div className="absolute top-0 right-0">
-              <img src={currentProject.spotlight} alt="spotlight" className="w-full h-96 object-cover rounded-xl" />
+              <img src={currentProject.spotlight} alt="spotlight" className="w-full h-96 object-cover rounded-3xl" />
+            </div>
+            <div className="absolute top-0 right-0">
+              <img src={currentProject.background} alt="spotlight" className="w-full h-44 object-cover rounded-3xl" />
             </div>
 
-            <div className="p-3 backdrop-filter backdrop-blur-3xl w-fit rounded-lg" style={currentProject.logoStyle}>
+            <div className="p-3 backdrop-filter backdrop-blur-3xl w-fit rounded-xl" style={currentProject.logoStyle}>
               <img className="w-10 h-10 shadow-sm" src={currentProject.logo} alt="logo" />
             </div>
 
@@ -76,9 +79,7 @@ const Projects = () => {
             </div>
           </div>
 
-          <div className="border border-black-300 bg-black-200 rounded-lg h-96 md:h-full">
-
-          </div>
+      
         </div>
 
 

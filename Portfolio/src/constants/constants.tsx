@@ -36,6 +36,7 @@ export const navLinks = [
         boxShadow: '0px 0px 60px 0px #AA3C304D',
       },
       spotlight: '/assets/spotlight1.png',
+      background: '/assets/01.svg',
       tags: [
         {
           id: 1,
@@ -73,6 +74,7 @@ export const navLinks = [
         boxShadow: '0px 0px 60px 0px #2F6DB54D',
       },
       spotlight: '/assets/spotlight2.png',
+      background: '/assets/02.svg',
       tags: [
         {
           id: 1,
@@ -112,6 +114,7 @@ export const navLinks = [
         boxShadow: '0px 0px 60px 0px rgba(35, 131, 96, 0.3)',
       },
       spotlight: '/assets/spotlight3.png',
+      background: '/assets/03.svg',
       tags: [
         {
           id: 1,
@@ -149,43 +152,7 @@ export const navLinks = [
         boxShadow: '0px 0px 60px 0px #2F67B64D',
       },
       spotlight: '/assets/spotlight4.png',
-      tags: [
-        {
-          id: 1,
-          name: 'React.js',
-          path: '/assets/react.svg',
-        },
-        {
-          id: 2,
-          name: 'TailwindCSS',
-          path: 'assets/tailwindcss.png',
-        },
-        {
-          id: 3,
-          name: 'TypeScript',
-          path: '/assets/typescript.png',
-        },
-        {
-          id: 4,
-          name: 'Framer Motion',
-          path: '/assets/framer.png',
-        },
-      ],
-    },
-    {
-      title: 'Imaginify - AI Photo Manipulation App',
-      desc: 'Imaginify is a groundbreaking Software-as-a-Service application that empowers users to create stunning photo manipulations using AI technology. With features like AI-driven image editing, a payments system, and a credits-based model.',
-      subdesc:
-        'Built with Next.js 14, Cloudinary AI, Clerk, and Stripe, Imaginify combines cutting-edge technology with a user-centric approach. It can be turned into a side income or even a full-fledged business.',
-      href: 'https://www.youtube.com/watch?v=Ahwoks_dawU',
-      texture: '/textures/project/project5.mp4',
-      logo: '/assets/project-logo5.png',
-      logoStyle: {
-        backgroundColor: '#1C1A43',
-        border: '0.2px solid #252262',
-        boxShadow: '0px 0px 60px 0px #635BFF4D',
-      },
-      spotlight: '/assets/spotlight5.png',
+      background: '/assets/04.svg',
       tags: [
         {
           id: 1,
@@ -218,7 +185,7 @@ export const navLinks = [
       pos: 'Bachelor of technology, Computer Science & Design',
       duration: '2022 - Present',
       title: "Framer serves as my go-to tool for creating interactive prototypes. I use it to bring designs to  life, allowing stakeholders to experience the user flow and interactions before development.",
-      icon: '/assets/framer.svg',
+      icon: '/assets/srkrlogo.png',
     },
     {
       id: 2,
@@ -226,7 +193,7 @@ export const navLinks = [
       pos: 'Intermediate, MPC',
       duration: '2020 - 2022',
       title: "Figma is my collaborative design platform of choice. I utilize it to work seamlessly with team members and clients, facilitating real-time feedback and design iterations. Its cloud-based.",
-      icon: '/assets/figma.svg',
+      icon: '/assets/tirumala.png',
     },
     {
       id: 3,
@@ -234,6 +201,14 @@ export const navLinks = [
       pos: 'High School, State Board',
       duration: '2019 - 2020',
       title: "Notion helps me keep my projects organized. I use it for project management, task tracking, and as a central hub for documentation, ensuring that everything from design notes to.",
-      icon: '/assets/notion.svg',
+      icon: '/assets/srichaitanya.png',
     },
+  ];
+  export const Texts = [
+    'Full-Stack Developer',
+    'UI/UX Designer',
+    'Tech Enthusiast',
+    'Web Developer',
+    'AI/ML Enthusiast',,
+    'Tech Explorer',
   ];

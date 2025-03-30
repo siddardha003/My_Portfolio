@@ -1,62 +1,51 @@
 "use client";
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useEffect, useState } from "react";
+import { Card } from "./Card";
+import GitHubCalendar from "react-github-calendar";
 
-interface Repo {
-    id: number;
-    name: string;
-    stargazers_count: number;
-    followers: number;
-    contributions: number;
-}
+const GitHubStats = ({ username }: { username: string }) => {
+  const [stats, setStats] = useState({
+    followers: 0,
+    repositories: 0,
+  });
 
-const GitHubStats: React.FC = () => {
-    const [stats, setStats] = useState<Repo[] | null>(null);
-    const username = 'siddardha003'; // Replace with your GitHub username
+  useEffect(() => {
+    const fetchGitHubData = async () => {
+      try {
+        const response = await fetch(`https://api.github.com/users/${username}`);
+        const data = await response.json();
 
-    useEffect(() => {
-        const fetchStats = async () => {
-            try {
-                const response = await axios.get<Repo[]>(`https://api.github.com/users/${username}/repos`);
-                setStats(response.data);
-            } catch (error) {
-                console.error('Error fetching GitHub stats:', error);
-            }
-            try {
-                const response = await axios.get<Repo[]>(`https://api.github.com/users/${username}/followers`);
-                setStats(response.data);
-            } catch (error) {
-                console.error('Error fetching GitHub stats:', error);
-            }
-            try {
-                const response = await axios.get<Repo[]>(`https://api.github.com/users/${username}/contributions`);
-                setStats(response.data);
-            } catch (error) {
-                console.error('Error fetching GitHub stats:', error);
-            }
-        };
+        const reposResponse = await fetch(data.repos_url);
+        const reposData = await reposResponse.json();
 
-        fetchStats();
-    }, [username]);
+        setStats({
+          followers: data.followers,
+          repositories: reposData.length,
+        });
+      } catch (error) {
+        console.error("Error fetching GitHub data:", error);
+      }
+    };
 
-    if (!stats) {
-        return <div>Loading...</div>;
-    }
+    fetchGitHubData();
+  }, [username]);
 
-    return (
-        <div>
-            <h2>GitHub Stats</h2>
-            <ul>
-                {stats.map(repo => (
-                    <li key={repo.id}>
-                        {repo.name}: {repo.stargazers_count} stars
-                    </li>
-                    
-                    
-                ))}
-            </ul>
-        </div>
-    );
+  return (
+    <Card className="p-8 bg-gray-800 rounded-lg shadow-md">
+      <h2 className="text-xl font-semibold">GitHub Stats</h2>
+      <p>👥 Followers: {stats.followers}</p>
+      <p>📂 Repositories: {stats.repositories}</p>
+      <h2 className="text-xl font-semibold">Contribution Graph</h2>
+      <GitHubCalendar
+        username={username}
+        transformData={(data) => data}
+        colorScheme="dark"
+        blockSize={15}
+        blockMargin={5}
+        fontSize={14}
+      />
+    </Card>
+  );
 };
 
 export default GitHubStats;
