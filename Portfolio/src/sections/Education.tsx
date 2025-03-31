@@ -24,10 +24,10 @@ const Education = () => {
                                 {education.map((item, index) => (
                                     <div key={index} className="grid grid-cols-[auto_1fr] items-start gap-5 transition-all ease-in-out duration-500 cursor-pointer hover:bg-gray-600 rounded-3xl sm:px-5 px-2.5 group border border-white/50 mb-8 p-2.5 hover:transform hover:scale-105">
                                         <div className="flex flex-col h-full justify-start items-center py-2">
-                                            <div className="rounded-3xl w-16 h-16 p-2 bg-gray-600 group-hover:bg-gray-900">
+                                            <div className="rounded-3xl w-16 h-16 p-2 bg-gradient-to-r from-emerald-300 to-sky-400">
                                                 <img className="w-full h-full" src={item.icon} alt={item.name} />
                                             </div>
-                                            <div className="flex-1 w-0.5 mt-4 h-full bg-white/50 group-hover:bg-gray-600 group-last:hidden" />
+                                            <div className="flex-1 w-0.5 mt-4 h-full bg-white/50 group-hover:bg-gray-900 group-last:hidden" />
                                         </div>
                                         <div className="sm:p-5 px-2.5 py-5 ">
                                             <p className=" text-[#fff] font-serif text-xl group-hover:text-[#000]">{item.name}</p>

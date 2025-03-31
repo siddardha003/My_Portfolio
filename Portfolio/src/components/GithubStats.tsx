@@ -1,51 +1,105 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Card } from "./Card";
 import GitHubCalendar from "react-github-calendar";
+import StarIcon from '../../public/assets/icons/star.svg';
 
-const GitHubStats = ({ username }: { username: string }) => {
-  const [stats, setStats] = useState({
-    followers: 0,
-    repositories: 0,
-  });
+const GitHubContributions = ({ username }: { username: string }) => {
+  const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
+  const currentYear = new Date().getFullYear();
 
-  useEffect(() => {
-    const fetchGitHubData = async () => {
-      try {
-        const response = await fetch(`https://api.github.com/users/${username}`);
-        const data = await response.json();
+  // Years that can be selected for the calendar
+  const years = [];
+  for (let year = currentYear; year >= currentYear - 3; year--) {
+    years.push(year);
+  }
 
-        const reposResponse = await fetch(data.repos_url);
-        const reposData = await reposResponse.json();
-
-        setStats({
-          followers: data.followers,
-          repositories: reposData.length,
-        });
-      } catch (error) {
-        console.error("Error fetching GitHub data:", error);
-      }
-    };
-
-    fetchGitHubData();
-  }, [username]);
+  // Custom theme for the calendar
+  const theme = {
+    dark: ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353']
+  };
 
   return (
-    <Card className="p-8 bg-gray-800 rounded-lg shadow-md">
-      <h2 className="text-xl font-semibold">GitHub Stats</h2>
-      <p>👥 Followers: {stats.followers}</p>
-      <p>📂 Repositories: {stats.repositories}</p>
-      <h2 className="text-xl font-semibold">Contribution Graph</h2>
-      <GitHubCalendar
-        username={username}
-        transformData={(data) => data}
-        colorScheme="dark"
-        blockSize={15}
-        blockMargin={5}
-        fontSize={14}
-      />
+    <Card className="p-6 bg-gray-800 rounded-xl shadow-xl border border-gray-700 overflow-hidden w-full">
+      <div className="flex flex-col">
+        <div className="flex flex-col mb-5">
+          <div className="inline-flex items-center gap-3">
+            <StarIcon className="size-9 text-emerald-300" />
+            <div>
+              <h3 className="font-serif text-3xl font-medium bg-white/80 bg-clip-text text-transparent">
+                GitHub Stats
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="flex flex-col gap-4">
+        {/* Year Selection */}
+        <div className="flex justify-start gap-3">
+          {years.map(year => (
+            <button
+              key={year}
+              onClick={() => setSelectedYear(year)}
+              className={`px-2 py-1 text-xs rounded ${selectedYear === year
+                ? 'bg-emerald-700 text-white'
+                : 'bg-gray-700 text-gray-400 hover:bg-gray-600'
+                } transition-colors`}
+            >
+              {year}
+            </button>
+          ))}
+        </div>
+
+        {/* GitHub Calendar with completely hidden scrollbar */}
+        <div className="relative">
+          <style jsx global>{`
+            /* Hide scrollbar for Chrome, Safari and Opera */
+            .calendar-container::-webkit-scrollbar,
+            .calendar-container *::-webkit-scrollbar {
+              display: none;
+              width: 0;
+              height: 0;
+            }
+            
+            /* Hide scrollbar for IE, Edge and Firefox */
+            .calendar-container,
+            .calendar-container * {
+              -ms-overflow-style: none;  /* IE and Edge */
+              scrollbar-width: none;  /* Firefox */
+              overflow: -moz-scrollbars-none;
+            }
+            
+            /* Additional fixes for specific elements */
+            .react-github-calendar,
+            .react-github-calendar > div {
+              overflow: hidden !important;
+            }
+          `}</style>
+          
+          <div className="calendar-container overflow-hidden rounded-lg p-2">
+            <GitHubCalendar
+              username={username}
+              year={selectedYear}
+              colorScheme="dark"
+              blockSize={14}
+              blockMargin={3}
+              fontSize={15}
+              hideColorLegend
+              style={{ 
+                margin: 0, 
+                overflowX: 'hidden', 
+                overflowY: 'hidden'
+              }}
+              theme={theme}
+                />
+              </div>
+              <div className="calendar-container">
+            
+          </div>
+        </div>
+      </div>
     </Card>
   );
 };
 
-export default GitHubStats;
+export default GitHubContributions;

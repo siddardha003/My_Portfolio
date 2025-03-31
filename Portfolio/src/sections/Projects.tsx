@@ -38,8 +38,8 @@ const Projects = () => {
               <img src={currentProject.background} alt="spotlight" className="w-full h-44 object-cover rounded-3xl" />
             </div>
 
-            <div className="p-3 backdrop-filter backdrop-blur-3xl w-fit rounded-xl" style={currentProject.logoStyle}>
-              <img className="w-10 h-10 shadow-sm" src={currentProject.logo} alt="logo" />
+            <div className=" backdrop-filter backdrop-blur-3xl w-fit rounded-xl" style={currentProject.logoStyle}>
+              <img className="w-16 h-16 shadow-sm" src={currentProject.logo} alt="logo" />
             </div>
 
             <div className="flex flex-col gap-5 text-white-600 my-5">
@@ -49,7 +49,7 @@ const Projects = () => {
               <p className="animatedText">{currentProject.subdesc}</p>
             </div>
 
-            <div className="flex items-center justify-between flex-wrap gap-5">
+            <div className="flex items-center justify-between flex-wrap gap-5 z-10">
               <div className="flex items-center gap-3">
                 {currentProject.tags.map((tag, index) => (
                   <div key={index} className="w-10 h-10 rounded-md p-2 bg-neutral-100 bg-opacity-10 backdrop-filter backdrop-blur-lg flex justify-center items-center">

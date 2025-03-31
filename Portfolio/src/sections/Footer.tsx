@@ -1,30 +1,59 @@
+'use client';
 import React from 'react';
 
 const Footer = () => {
+  // Function to scroll to a specific section
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <footer className="text-white p-8">
       <div className="border-t border-gray-700 pt-4">
         <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
           {/* Main Message */}
           <div className="text-center md:text-left mb-4 md:mb-0">
-            <h2 className="text-4xl  font-serif">Let's work together today!</h2>
+            <h2 className="text-4xl font-serif">Let's work together today!</h2>
           </div>
 
           {/* Sitemap and Socials */}
           <div className="text-center md:text-center mb-4 md:mb-0">
             {/* Sitemap */}
-            <h3 className="text-lg font-semibold mb-2">Sitemap</h3>
+            <h3 className="text-lg font-semibold mb-2">Quick Links</h3>
             <ul className="flex flex-wrap justify-center md:justify-start gap-4 mb-4">
-              <li><a href="#home" className="hover:text-emerald-300">Home</a></li>
-              <li><a href="#about" className="hover:text-emerald-300">About</a></li>
-              <li><a href="#work" className="hover:text-emerald-300">projects</a></li>
-              <li><a href="#reviews" className="hover:text-emerald-300">experience</a></li>
-              <li><a href="#contact" className="hover:text-emerald-300">Contact </a></li>
+              <li>
+                <button onClick={() => scrollToSection('hero')} className="hover:text-emerald-300">
+                  Home
+                </button>
+              </li>
+              <li>
+                <button onClick={() => scrollToSection('about')} className="hover:text-emerald-300">
+                  About
+                </button>
+              </li>
+              <li>
+                <button onClick={() => scrollToSection('projects')} className="hover:text-emerald-300">
+                  Projects
+                </button>
+              </li>
+              <li>
+                <button onClick={() => scrollToSection('experience')} className="hover:text-emerald-300">
+                  Experience
+                </button>
+              </li>
+              <li>
+                <button onClick={() => scrollToSection('contact')} className="hover:text-emerald-300">
+                  Contact
+                </button>
+              </li>
             </ul>
 
             {/* Socials */}
             <h3 className="text-lg font-semibold mb-2">Socials</h3>
-            <ul className="flex flex-wrap justify-center  gap-6">
+            <ul className="flex flex-wrap justify-center gap-6">
               <li>
                 <a href="https://github.com/siddardha003" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-300">
                   <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" viewBox="0 0 48 48">

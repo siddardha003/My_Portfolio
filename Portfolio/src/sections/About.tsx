@@ -38,6 +38,7 @@ import fastapiIcon from '../../public/assets/icons/FastAPI.svg';
 import flaskIcon from '../../public/assets/icons/Flask.svg';
 import tailwindIcon from '../../public/assets/icons/icons8-tailwindcss.svg';
 import { TechIcon } from "@/components/TechIcon";
+import { HobbiesCard } from "@/components/Hobbies";
 
 
 
@@ -158,38 +159,6 @@ const toolboxItems = [
 
 ];
 
-const hobbies = [
-  {
-    title: "Travel",
-    emoji: "🌍",
-    left: "60%",
-    top: "55%",
-  },
-  {
-    title: "Photography",
-    emoji: "📸",
-    left: "50%",
-    top: "75%",
-  },
-  {
-    title: "Music",
-    emoji: "🎵",
-    left: "10%",
-    top: "45%",
-  },
-  {
-    title: "Gaming",
-    emoji: "🎮",
-    left: "35%",
-    top: "40%",
-  },
-  {
-    title: "Cricket",
-    emoji: "🏏",
-    left: "5%",
-    top: "75%",
-  },
-];
 
 export const AboutSection = () => {
   const constraintsRef = useRef(null);
@@ -221,13 +190,13 @@ export const AboutSection = () => {
                 <p className="text-2xl mb-2 text-white-300 font-serif text-center"> Hi, I'm Siddardha! 👋</p>
                 <p className="text-2xl mb-2 text-white-300 font-serif text-center"> Tech & AI/ML Enthusiast 👨‍💻</p>
                 <p className="text-base font-sans text-center">
-                  💡 I'm a passionate web developer and designer with a love for technology and creativity.<br/>
+                  💡 I'm a passionate web developer and designer with a love for technology and creativity.<br />
                   🌍 Love working on real-world projects that blend design, development, and AI to create impactful solutions.
-                  <br/><br/>
-                  🎯 Currently focused on: <br/>
+                  <br /><br />
+                  🎯 Currently focused on: <br />
                   💻 Web & App Development | 🧠AI/ML | 🎨UI/UX Design | 🔥Exploring the latest tech trends
-                  <br/><br/>
-                  🤝 Open to collaborations & new opportunities!<br/>
+                  <br /><br />
+                  🤝 Open to collaborations & new opportunities!<br />
                   📩 Let's connect and build something amazing together!🚀
 
                 </p>
@@ -247,30 +216,9 @@ export const AboutSection = () => {
           {/* Second row */}
           <div className="grid grid-cols-1 gap-8 md:grid-cols-5 lg:grid-cols-5">
             <Card className="h-[320px] p-0 flex flex-col md:col-span-3 lg:col-span-3">
-              <div className="px-6 py-6">
-                <div className="flex flex-col">
-                  <div className="inline-flex items-center gap-2">
-                    <StarIcon className="size-9 text-emerald-300" />
-                    <h3 className="font-serif text-3xl">Beyond the code</h3>
-                  </div>
-                  <p className="text-sm lg:text-base max-w-xs text-white/60 mt-2">Explore my interests and hobbies beyond the digital realm.</p>
-                </div>
-                <div className="" ref={constraintsRef}>
-                  {hobbies.map((hobby) => (
-                    <motion.div
-                      key={hobby.title}
-                      className="inline-flex items-center gap-2 px-6 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full py-1.5 absolute"
-                      style={{ left: hobby.left, top: hobby.top }}
-                      drag
-                      dragConstraints={constraintsRef}
-                    >
-                      <span>{hobby.emoji}</span>
-                      <span className="font-medium text-gray-950">{hobby.title}</span>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
+              <HobbiesCard />
             </Card>
+
             <Card className="h-[320px] p-0 relative md:col-span-2 lg:col-span-2">
               <img
                 src="assets/grid4.png"
@@ -288,23 +236,7 @@ export const AboutSection = () => {
           </div>
 
           {/* Third row */}
-          <div className="container">
-            <div className="flex justify-center mt-32">
-              <p className="uppercase font-semibold tracking-widest bg-gradient-to-r from-emerald-300 to-sky-400 bg-clip-text text-transparent text-center">
-                My Skill Set
-              </p>
-            </div>
-            <h2 className="font-serif text-3xl md:text-5xl text-center mt-6">My Core Competencies</h2>
-            <p className="text-center md:text-lg lg:text-xl text-white/60 mt-4 mx-auto max-w-2xl mb-24">
-              A reflection of my abilities, continuously refined through learning and experience to deliver impactful results.
-            </p>
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-5 lg:grid-cols-5">
-              <div className="h-[240px] md:col-span-5 lg:col-span-5 border border-white/40 overflow-hidden rounded-3xl">
-                <ToolboxItems toolboxItems={toolboxItems} className="mt-12" itemsWrapperClassName="animate-move-left [animation-duration:40s]" />
-                <ToolboxItems toolboxItems={toolboxItems} className="mt-6" itemsWrapperClassName="animate-move-right [animation-duration:40s]" />
-              </div>
-            </div>
-          </div>
+
         </div>
       </div>
     </div>

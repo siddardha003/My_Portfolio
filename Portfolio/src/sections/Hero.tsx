@@ -1,3 +1,4 @@
+"use client"
 import Image from 'next/image';
 import StarIcon from '../../public/assets/icons/star.svg';
 import { HeroOrbit } from '@/components/HeroOrbit';
@@ -6,6 +7,21 @@ import { Texts } from '@/constants/constants';
 import { MorphingText } from '@/components/magicui/morphing-text';
 
 export const HeroSection = () => {
+  // Function to scroll to contact section
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      // Smooth scroll to the contact section
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  // Function to open the resume PDF
+  const openResume = () => {
+    const pdfUrl = '/assets/Siddhu_Resume.pdf'; // Update this path
+    window.open(pdfUrl, '_blank');
+  };
+
   return (
     <div className="py-32 md:py-48 lg:py-60 relative z-0 overflow-x-clip">
       <div className="absolute inset-0 mask-image:linear-gradient-to-r from-gray-900 to-gray-800">
@@ -68,13 +84,21 @@ export const HeroSection = () => {
             Hello, I'm Siddardha Karumuri
           </GradientText>
           <h1 className="font-serif text-3xl text-center mt-4 tracking-wide ">I'm a <MorphingText className="font-serif text-sm mt-4 text-3xl " texts={Texts.filter((text): text is string => text !== undefined)} /></h1>
-          <p className="mt-4 text-center text-white/60 md:text-lg">I'm specialize in transforming designs into functional, high-performing web applications.</p>
+          <p className="mt-4 text-center text-white/60 md:text-lg">I specialize in transforming designs into functional, high-performing web applications.</p>
         </div>
         <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4">
-          <button className="inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl">
+          <button
+            onClick={openResume}
+            className="inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl cursor-pointer hover:bg-white/10 transition-colors z-10"
+          >
             <span className="font-semibold">View Resume</span>
           </button>
-          <button className="inline-flex items-center gap-2 border border-white bg-white text-gray-900 h-12 px-6 rounded-xl">
+
+          {/* Using a regular button with onClick handler */}
+          <button
+            onClick={scrollToContact}
+            className="inline-flex items-center justify-center gap-2 border border-white bg-white text-gray-900 h-12 px-6 rounded-xl cursor-pointer hover:bg-white/90 transition-colors z-10"
+          >
             <span>👋</span>
             <span className="font-semibold">Let's connect</span>
           </button>
