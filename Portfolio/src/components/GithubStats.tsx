@@ -10,7 +10,7 @@ const GitHubContributions = ({ username }: { username: string }) => {
 
   // Years that can be selected for the calendar
   const years = [];
-  for (let year = currentYear; year >= currentYear - 3; year--) {
+  for (let year = currentYear; year >= currentYear - 2; year--) {
     years.push(year);
   }
 
